@@ -1,0 +1,39 @@
+﻿<h2>Вход</h2>
+
+
+<form method="post">
+
+
+    <input name="email"
+           placeholder="Email"
+           class="form-control" />
+
+
+    <br>
+
+
+    <input name="password"
+           type="password"
+           placeholder="Пароль"
+           class="form-control" />
+
+
+    <br>
+
+
+    <button class="btn btn-success">
+        Войти
+    </button>
+
+
+</form>
+
+
+<p style="color:red">
+    @ViewBag.Error
+</p>
+
+
+<a href="/Account/Register">
+    Регистрация
+</a>

@@ -1,0 +1,100 @@
+﻿@model HabitTracker.Models.StatisticsViewModel
+
+
+@{
+    ViewData["Title"] = "Статистика";
+}
+
+
+
+<div class="container mt-4">
+
+
+    <h2>
+        📊 Статистика
+    </h2>
+
+
+
+    <div class="row mt-4">
+
+
+        <div class="col-md-3">
+
+            <div class="card shadow p-3 text-center">
+
+                <h3>
+                    @Model.TotalHabits
+                </h3>
+
+                <p>
+                    Всего привычек
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="col-md-3">
+
+            <div class="card shadow p-3 text-center">
+
+                <h3>
+                    @Model.CompletedToday
+                </h3>
+
+                <p>
+                    Сегодня выполнено
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="col-md-3">
+
+            <div class="card shadow p-3 text-center">
+
+                <h3>
+                    @Model.TotalCompletions
+                </h3>
+
+                <p>
+                    Всего выполнений
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="col-md-3">
+
+            <div class="card shadow p-3 text-center">
+
+                <h3>
+                    🔥 @Model.BestStreak
+                </h3>
+
+                <p>
+                    Лучшая серия
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+</div>

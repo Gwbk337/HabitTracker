@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Вход";
+}
+
+
+<h2>Вход</h2>
+
+
+<form method="post">
+
+    <div class="mb-3">
+        <label>Email</label>
+
+        <input name="email"
+               class="form-control"
+               type="email" />
+    </div>
+
+
+    <div class="mb-3">
+
+        <label>Пароль</label>
+
+        <input name="password"
+               class="form-control"
+               type="password" />
+
+    </div>
+
+
+    <button class="btn btn-success">
+        Войти
+    </button>
+
+
+</form>
+
+
+@if (ViewBag.Error != null)
+{
+    <p class="text-danger">
+        @ViewBag.Error
+    </p>
+}
+
+
+<br />
+
+<a href="/Account/Register">
+    Нет аккаунта? Регистрация
+</a>

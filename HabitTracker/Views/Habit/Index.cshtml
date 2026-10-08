@@ -1,0 +1,221 @@
+﻿@model List<HabitTracker.Models.Habit>
+
+@{
+    ViewData["Title"] = "Мои привычки";
+}
+
+
+<h1 class="mb-4">
+    📋 Мои привычки
+</h1>
+
+
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+
+        @TempData["Error"]
+
+    </div>
+}
+
+
+
+<div class="card shadow p-4 mb-4">
+
+
+    <h4>
+        ➕ Новая привычка
+    </h4>
+
+
+
+    <form method="post"
+          action="/Habit/Create"
+          class="d-flex gap-3">
+
+
+        <input name="name"
+               class="form-control"
+               placeholder="Например: Читать 30 минут" />
+
+
+
+        <button class="btn btn-primary">
+
+            Добавить
+
+        </button>
+
+
+    </form>
+
+
+</div>
+
+
+
+
+
+<div class="row">
+
+
+
+    @foreach (var habit in Model)
+    {
+
+
+        <div class="col-md-4 mb-4">
+
+
+            <div class="card shadow h-100 p-3">
+
+
+                <h3>
+
+                    @habit.Name
+
+                </h3>
+
+
+
+                <p class="text-muted">
+
+                    📅 Создано:
+                    @habit.CreatedDate.ToShortDateString()
+
+                </p>
+
+
+
+
+                <div class="mb-2">
+
+
+                    @if (habit.DoneToday)
+                    {
+
+                        <div class="alert alert-success">
+
+                            ✔ Выполнено сегодня
+
+                        </div>
+
+                    }
+                    else
+                    {
+
+                        <div class="alert alert-warning">
+
+                            ⏳ Еще не выполнено
+
+                        </div>
+
+                    }
+
+
+                </div>
+
+
+
+
+
+                <h5>
+
+                    🔥 Серия:
+                    <span class="text-danger">
+
+                        @habit.Streak дней
+
+                    </span>
+
+                </h5>
+
+
+
+
+
+                <h5>
+
+                    ⭐ Выполнено:
+
+                    @habit.Completions.Count раз
+
+                </h5>
+
+
+
+
+
+                <div class="progress mt-3">
+
+
+                    <div class="progress-bar"
+                         role="progressbar"
+                         style="width:@(Math.Min(habit.Completions.Count * 5, 100))%">
+
+
+                        @(Math.Min(habit.Completions.Count * 5, 100))%
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+                <div class="mt-4 d-flex gap-2">
+
+
+
+                    @if (!habit.DoneToday)
+                    {
+
+                        <a class="btn btn-success"
+                           href="/Habit/Complete/@habit.Id">
+
+                            ✔ Выполнить
+
+                        </a>
+
+                    }
+                    else
+                    {
+
+                        <button class="btn btn-secondary"
+                                disabled>
+
+                            Готово
+
+                        </button>
+
+                    }
+
+
+
+                    <a class="btn btn-danger"
+                       href="/Habit/Delete/@habit.Id">
+
+                        🗑
+
+                    </a>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    }
+
+
+</div>

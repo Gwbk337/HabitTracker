@@ -1,0 +1,147 @@
+﻿@model HabitTracker.Models.User
+
+
+@{
+    ViewData["Title"] = "Premium";
+}
+
+
+
+<div class="container mt-4">
+
+
+    <h2>
+        💎 Premium
+    </h2>
+
+
+    @if (Model.IsPremium)
+    {
+
+        <div class="alert alert-success">
+
+            <h4>
+                Ваш тариф: Premium ✅
+            </h4>
+
+
+            <p>
+                У вас доступны все возможности:
+            </p>
+
+
+            <ul>
+
+                <li>Неограниченные привычки</li>
+
+                <li>Расширенная статистика</li>
+
+                <li>Экспорт отчётов</li>
+
+            </ul>
+
+
+        </div>
+
+    }
+    else
+    {
+
+
+        <div class="card shadow p-4">
+
+
+            <h3>
+                Бесплатный тариф
+            </h3>
+
+
+            <p>
+                Доступно:
+            </p>
+
+
+            <ul>
+
+                <li>До 3 привычек</li>
+
+                <li>Базовая статистика</li>
+
+            </ul>
+
+
+
+            <form method="post"
+                  action="/Premium/Buy">
+
+
+                <button class="btn btn-warning">
+
+                    💎 Купить Premium
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+    }
+    @{
+        ViewData["Title"] = "Premium";
+    }
+
+
+    <div class="text-center">
+
+
+        <h1>
+            💎 Premium
+        </h1>
+
+
+        <h3 class="mt-3">
+
+            Больше возможностей для развития
+
+        </h3>
+
+
+
+        <div class="card shadow p-5 mt-4">
+
+
+            <h2>
+                299 ₽ / месяц
+            </h2>
+
+
+            <ul class="list-unstyled mt-4">
+
+                <li>✅ Неограниченные привычки</li>
+
+                <li>✅ Расширенная статистика</li>
+
+                <li>✅ Экспорт отчетов</li>
+
+                <li>✅ Все будущие функции</li>
+
+            </ul>
+
+
+            <a class="btn btn-warning btn-lg mt-3">
+
+                Купить Premium
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
